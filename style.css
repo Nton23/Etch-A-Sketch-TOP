@@ -21,3 +21,11 @@ body{
     width: 60%;
     height: 70%;
 }
+
+#div-container {
+    border: solid blue;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    align-self: flex-end;
+}
