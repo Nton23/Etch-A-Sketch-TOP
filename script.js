@@ -64,4 +64,16 @@ divLeftSideContainer.appendChild(colorShadingContainer);
 divLeftSideContainer.appendChild(scrollerContainer);
 
 
-createDiv(4);
+//append button and input
+const userButton = document.querySelector("#user-button");
+const userInput = document.querySelector("#user-input");
+scrollerContainer.appendChild(userButton);
+scrollerContainer.appendChild(userInput);
+
+//create add event to populate the user input into the create div function
+userButton.addEventListener("click", ()=> {
+    const inputValue = parseInt(userInput.value);
+    if(!isNaN(inputValue)) {
+        createDiv(inputValue);
+    }
+});
