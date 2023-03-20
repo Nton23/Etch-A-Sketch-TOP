@@ -16,8 +16,8 @@ body{
     justify-content: center;
     align-items: center;
 }
-#div-container {
+#user-interface-container {
     border: solid blue;
-    width: 500px;
-    height: 600px;
+    width: 60%;
+    height: 70%;
 }
