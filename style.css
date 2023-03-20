@@ -21,19 +21,18 @@ body{
     width: 60%;
     height: 70%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 #div-container {
     border: solid blue;
     width: 40%;
     height: 100%;
-    display: flex;
 }
 
 #div-left-side-container {
     border: solid red;
     width: 30%;
     height: 100%;
-    display: flex;
+
 }
