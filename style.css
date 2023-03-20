@@ -20,12 +20,20 @@ body{
     border: solid blue;
     width: 60%;
     height: 70%;
+    display: flex;
+    justify-content: space-around;
 }
 
 #div-container {
     border: solid blue;
-    width: 70%;
+    width: 40%;
     height: 100%;
     display: flex;
-    align-self: flex-end;
+}
+
+#div-left-side-container {
+    border: solid red;
+    width: 30%;
+    height: 100%;
+    display: flex;
 }
