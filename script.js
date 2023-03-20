@@ -40,13 +40,14 @@ function createDiv(divQty) {
 
 //append the divs to html body
 document.body.appendChild(userInterfaceContainer);
-userInterfaceContainer.appendChild(divContainer);
-divContainer.appendChild(createDiv(divQty));
 userInterfaceContainer.appendChild(divLeftSideContainer);
+userInterfaceContainer.appendChild(divContainer);
 divLeftSideContainer.appendChild(colorContainer);
 divLeftSideContainer.appendChild(colorModeContainer);
 divLeftSideContainer.appendChild(rainbowModeContainer);
 divLeftSideContainer.appendChild(eraserContainer);
 divLeftSideContainer.appendChild(clearContainer);
 divLeftSideContainer.appendChild(scrollerContainer);
+divContainer.appendChild(createDiv(divQty));
+
 
