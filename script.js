@@ -31,9 +31,21 @@ scrollerContainer.setAttribute("id", "scroller-container");
 
 //create a function to generate other divs
 function createDiv(divQty) {
-    
+    let userInput = divQty;
+    for (let i = 0; i < userInput; i++){
+        const insideDivs = document.createElement("div");
+        insideDivs.setAttribute("class", "inside-divs")
+    }
 }
 
 //append the divs to html body
 document.body.appendChild(userInterfaceContainer);
-document.body.appendChild(divContainer);
+userInterfaceContainer.appendChild(divContainer);
+divContainer.appendChild(createDiv(divQty));
+userInterfaceContainer.appendChild(colorContainer);
+userInterfaceContainer.appendChild(colorModeContainer);
+userInterfaceContainer.appendChild(rainbowModeContainer);
+userInterfaceContainer.appendChild(eraserContainer);
+userInterfaceContainer.appendChild(clearContainer);
+userInterfaceContainer.appendChild(scrollerContainer);
+
