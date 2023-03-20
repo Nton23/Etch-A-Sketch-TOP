@@ -31,10 +31,14 @@ scrollerContainer.setAttribute("id", "scroller-container");
 //create a function to generate other divs
 function createDiv(divQty) {
     let userInput = divQty;
+    //loop through the number of time the user want
+    //create each vertical container
     for (let i = 0; i < userInput; i++){
         const insideDivsVertical = document.createElement("div");
         insideDivsVertical.setAttribute("id", "inside-divs-vertical");
         divContainer.appendChild(insideDivsVertical);
+        //loop through the number of time the user want
+        //create each horizontal container (box)
         for (let j = 0; j< userInput; j++) {
             const insideDivsHorizontal = document.createElement("div");
             insideDivsHorizontal.setAttribute("id", "inside-divs-horizontal");
