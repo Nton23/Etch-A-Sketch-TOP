@@ -28,15 +28,21 @@ clearContainer.setAttribute("class", "lefty-container");
 const scrollerContainer = document.createElement("div");
 scrollerContainer.setAttribute("id", "scroller-container");
 
-
 //create a function to generate other divs
 function createDiv(divQty) {
     let userInput = divQty;
     for (let i = 0; i < userInput; i++){
-        const insideDivs = document.createElement("div");
-        insideDivs.setAttribute("class", "inside-divs")
+        const insideDivsVertical = document.createElement("div");
+        insideDivsVertical.setAttribute("id", "inside-divs-vertical");
+        divContainer.appendChild(insideDivsVertical);
+        for (let j = 0; j< userInput; j++) {
+            const insideDivsHorizontal = document.createElement("div");
+            insideDivsHorizontal.setAttribute("id", "inside-divs-horizontal");
+            insideDivsVertical.appendChild(insideDivsHorizontal);
+        }
     }
-}
+    
+};
 
 //append the divs to html body
 document.body.appendChild(userInterfaceContainer);
@@ -48,6 +54,6 @@ divLeftSideContainer.appendChild(rainbowModeContainer);
 divLeftSideContainer.appendChild(eraserContainer);
 divLeftSideContainer.appendChild(clearContainer);
 divLeftSideContainer.appendChild(scrollerContainer);
-divContainer.appendChild(createDiv(divQty));
 
 
+createDiv(64);
