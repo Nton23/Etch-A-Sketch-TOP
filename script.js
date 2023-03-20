@@ -34,6 +34,7 @@ scrollerContainer.setAttribute("id", "scroller-container");
 //create a function to generate other divs
 function createDiv(divQty) {
     let userInput = divQty;
+    divContainer.innerHTML = "";
     //loop through the number of time the user want
     //create each vertical container
     for (let i = 0; i < userInput; i++){
@@ -47,8 +48,7 @@ function createDiv(divQty) {
             insideDivsHorizontal.setAttribute("id", "inside-divs-horizontal");
             insideDivsVertical.appendChild(insideDivsHorizontal);
         }
-    }
-    
+    }    
 };
 
 //append the divs to html body
@@ -66,14 +66,15 @@ divLeftSideContainer.appendChild(scrollerContainer);
 
 //append button and input
 const userButton = document.querySelector("#user-button");
-const userInput = document.querySelector("#user-input");
+const userInputValue = document.querySelector("#user-input");
 scrollerContainer.appendChild(userButton);
-scrollerContainer.appendChild(userInput);
+scrollerContainer.appendChild(userInputValue);
 
 //create add event to populate the user input into the create div function
-userButton.addEventListener("click", ()=> {
-    const inputValue = parseInt(userInput.value);
+userButton.addEventListener("click", () => {
+    const inputValue = parseInt(userInputValue.value);
     if(!isNaN(inputValue)) {
         createDiv(inputValue);
+        userInputValue.value = "";
     }
 });
