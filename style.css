@@ -18,21 +18,36 @@ body{
 }
 #user-interface-container {
     border: solid blue;
-    width: 60%;
-    height: 70%;
+    width: 1000px;
+    height: 800px;
     display: flex;
     justify-content: center;
 }
 
 #div-container {
     border: solid blue;
-    width: 40%;
+    max-width: 960px;
+    width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 #div-left-side-container {
     border: solid red;
-    width: 30%;
+    width: 280px;
     height: 100%;
 
+}
+#inside-divs-vertical {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+#inside-divs-horizontal {
+    border: solid purple;
+    width: 100%;
+    height: 100%;
 }
