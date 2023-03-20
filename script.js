@@ -25,6 +25,9 @@ eraserContainer.setAttribute("class","lefty-container");
 const clearContainer = document.createElement("div");
 clearContainer.setAttribute("id", "clear-container");
 clearContainer.setAttribute("class", "lefty-container");
+const colorShadingContainer = document.createElement("div");
+colorShadingContainer.setAttribute("id", "color-shading-container");
+colorShadingContainer.setAttribute("class", "lefty-container");
 const scrollerContainer = document.createElement("div");
 scrollerContainer.setAttribute("id", "scroller-container");
 
@@ -57,7 +60,8 @@ divLeftSideContainer.appendChild(colorModeContainer);
 divLeftSideContainer.appendChild(rainbowModeContainer);
 divLeftSideContainer.appendChild(eraserContainer);
 divLeftSideContainer.appendChild(clearContainer);
+divLeftSideContainer.appendChild(colorShadingContainer);
 divLeftSideContainer.appendChild(scrollerContainer);
 
 
-createDiv(64);
+createDiv(4);
