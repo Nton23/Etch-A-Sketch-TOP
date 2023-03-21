@@ -1,6 +1,6 @@
 //create a div contains user interface container
 const userInterfaceContainer = document.createElement("div");
-userInterfaceContainer.setAttribute("id","user-interface-container");
+userInterfaceContainer.setAttribute("id", "user-interface-container");
 
 //create a div that contains other divs
 const divContainer = document.createElement("div");
@@ -20,8 +20,8 @@ const rainbowModeContainer = document.createElement("div");
 rainbowModeContainer.setAttribute("id", "rainbow-mode-container");
 rainbowModeContainer.setAttribute("class", "lefty-container")
 const eraserContainer = document.createElement("div");
-eraserContainer.setAttribute("id","eraser-container");
-eraserContainer.setAttribute("class","lefty-container");
+eraserContainer.setAttribute("id", "eraser-container");
+eraserContainer.setAttribute("class", "lefty-container");
 const clearContainer = document.createElement("div");
 clearContainer.setAttribute("id", "clear-container");
 clearContainer.setAttribute("class", "lefty-container");
@@ -37,18 +37,22 @@ function createDiv(divQty) {
     divContainer.innerHTML = "";
     //loop through the number of time the user want
     //create each vertical container
-    for (let i = 0; i < userInput; i++){
+    for (let i = 0; i < userInput; i++) {
         const insideDivsVertical = document.createElement("div");
         insideDivsVertical.setAttribute("id", "inside-divs-vertical");
+        insideDivsVertical.setAttribute("class", "inside-divs");
         divContainer.appendChild(insideDivsVertical);
         //loop through the number of time the user want
         //create each horizontal container (box)
-        for (let j = 0; j< userInput; j++) {
+        for (let j = 0; j < userInput; j++) {
             const insideDivsHorizontal = document.createElement("div");
             insideDivsHorizontal.setAttribute("id", "inside-divs-horizontal");
+            insideDivsHorizontal.setAttribute("class", "inside-divs");
             insideDivsVertical.appendChild(insideDivsHorizontal);
+
         }
-    }    
+    }
+    addEventListenersToDivs();
 };
 
 //append the divs to html body
@@ -73,8 +77,31 @@ scrollerContainer.appendChild(userInputValue);
 //create add event to populate the user input into the create div function
 userButton.addEventListener("click", () => {
     const inputValue = parseInt(userInputValue.value);
-    if(!isNaN(inputValue)) {
+    if (!isNaN(inputValue)) {
         createDiv(inputValue);
         userInputValue.value = "";
     }
 });
+
+//click background color change
+function addEventListenersToDivs() {
+    const cells = document.querySelectorAll(".inside-divs");
+    let isMouseDown = false;
+    
+    cells.forEach((div) => {
+      div.addEventListener("mousedown", () => {
+        isMouseDown = true;
+        div.style.backgroundColor = "black";
+      });
+      
+      div.addEventListener("mouseup", () => {
+        isMouseDown = false;
+      });
+      
+      div.addEventListener("mousemove", () => {
+        if (isMouseDown) {
+          div.style.backgroundColor = "black";
+        }
+      });
+    });
+  }
