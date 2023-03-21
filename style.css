@@ -75,3 +75,9 @@ body{
 #user-input {
     width: 100px;
 }
+.inside-divs{
+    background: beige;
+}
+.active {
+    background-color: black;
+}
