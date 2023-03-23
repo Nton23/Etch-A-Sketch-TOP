@@ -68,11 +68,18 @@ divLeftSideContainer.appendChild(colorShadingContainer);
 divLeftSideContainer.appendChild(scrollerContainer);
 
 
-//append button and input
+//append button and user input
 const userButton = document.querySelector("#user-button");
 const userInputValue = document.querySelector("#user-input");
 scrollerContainer.appendChild(userButton);
 scrollerContainer.appendChild(userInputValue);
+
+//clear button 
+const clearButton = document.createElement("button");
+clearButton.setAttribute("id", "clear-button")
+clearButton.textContent = "Clear";
+clearContainer.appendChild(clearButton);
+
 
 //create add event to populate the user input into the create div function
 userButton.addEventListener("click", () => {
@@ -105,3 +112,4 @@ function addEventListenersToDivs() {
       });
     });
   }
+  //add a reset button
