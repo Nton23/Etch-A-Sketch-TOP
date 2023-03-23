@@ -90,7 +90,7 @@ userButton.addEventListener("click", () => {
     }
 });
 
-//click background color change
+//click then hold left click to change background color 
 function addEventListenersToDivs() {
     const cells = document.querySelectorAll(".inside-divs");
     let isMouseDown = false;
@@ -112,4 +112,4 @@ function addEventListenersToDivs() {
       });
     });
   }
-  //add a reset button
+// add a reset button to reset the display
