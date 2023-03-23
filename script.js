@@ -113,3 +113,6 @@ function addEventListenersToDivs() {
     });
   }
 // add a reset button to reset the display
+clearButton.addEventListener("click", ()=> {
+  divContainer.innerHTML = "";
+})
