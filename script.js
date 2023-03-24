@@ -120,4 +120,14 @@ clearButton.addEventListener("click", ()=> {
 });
 
 // add a color changing background when user select
+backgroundColorSelection = document.createElement("input");
+backgroundColorSelection.setAttribute("type", "color");
+backgroundColorSelection.setAttribute("class", "color-picker");
+colorModeContainer.appendChild(backgroundColorSelection);
 
+//add function to addeventlistenerstodiv
+backgroundColorSelection.addEventListener("change", (event)=> {
+const selectedColor = event.target.value;
+document.querySelectorAll(".inside-divs").backgroundColor = selectedColor;
+
+})
