@@ -11,8 +11,10 @@ const divLeftSideContainer = document.createElement("div");
 divLeftSideContainer.setAttribute("id", "div-left-side-container");
 
 //create divs inside the left side container div
+//this color container is pen color container
 const colorContainer = document.createElement("div");
 colorContainer.setAttribute("id", "color-container");
+//this color mode container is for background
 const colorModeContainer = document.createElement("div");
 colorModeContainer.setAttribute("id", "color-mode-container");
 colorModeContainer.setAttribute("class", "lefty-container");
@@ -90,7 +92,7 @@ userButton.addEventListener("click", () => {
     }
 });
 
-//click then hold left click to change background color 
+//click then hold left click to color cells  
 function addEventListenersToDivs() {
     const cells = document.querySelectorAll(".inside-divs");
     let isMouseDown = false;
@@ -115,4 +117,7 @@ function addEventListenersToDivs() {
 // add a reset button to reset the display
 clearButton.addEventListener("click", ()=> {
   divContainer.innerHTML = "";
-})
+});
+
+// add a color changing background when user select
+
