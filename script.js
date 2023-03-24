@@ -35,26 +35,26 @@ scrollerContainer.setAttribute("id", "scroller-container");
 
 //create a function to generate other divs
 function createDiv(divQty) {
-    let userInput = divQty;
-    divContainer.innerHTML = "";
+  let userInput = divQty;
+  divContainer.innerHTML = "";
+  //loop through the number of time the user want
+  //create each vertical container
+  for (let i = 0; i < userInput; i++) {
+    const insideDivsVertical = document.createElement("div");
+    insideDivsVertical.setAttribute("id", "inside-divs-vertical");
+    insideDivsVertical.setAttribute("class", "inside-divs");
+    divContainer.appendChild(insideDivsVertical);
     //loop through the number of time the user want
-    //create each vertical container
-    for (let i = 0; i < userInput; i++) {
-        const insideDivsVertical = document.createElement("div");
-        insideDivsVertical.setAttribute("id", "inside-divs-vertical");
-        insideDivsVertical.setAttribute("class", "inside-divs");
-        divContainer.appendChild(insideDivsVertical);
-        //loop through the number of time the user want
-        //create each horizontal container (box)
-        for (let j = 0; j < userInput; j++) {
-            const insideDivsHorizontal = document.createElement("div");
-            insideDivsHorizontal.setAttribute("id", "inside-divs-horizontal");
-            insideDivsHorizontal.setAttribute("class", "inside-divs");
-            insideDivsVertical.appendChild(insideDivsHorizontal);
+    //create each horizontal container (box)
+    for (let j = 0; j < userInput; j++) {
+      const insideDivsHorizontal = document.createElement("div");
+      insideDivsHorizontal.setAttribute("id", "inside-divs-horizontal");
+      insideDivsHorizontal.setAttribute("class", "inside-divs");
+      insideDivsVertical.appendChild(insideDivsHorizontal);
 
-        }
     }
-    addEventListenersToDivs();
+  }
+  addEventListenersToDivs();
 };
 
 //append the divs to html body
@@ -85,37 +85,40 @@ clearContainer.appendChild(clearButton);
 
 //create add event to populate the user input into the create div function
 userButton.addEventListener("click", () => {
-    const inputValue = parseInt(userInputValue.value);
-    if (!isNaN(inputValue)) {
-        createDiv(inputValue);
-        userInputValue.value = "";
-    }
+  const inputValue = parseInt(userInputValue.value);
+  if (!isNaN(inputValue)) {
+    createDiv(inputValue);
+    userInputValue.value = "";
+  }
 });
 
 //click then hold left click to color cells  
 function addEventListenersToDivs() {
-    const cells = document.querySelectorAll(".inside-divs");
-    let isMouseDown = false;
-    
+  const cells = document.querySelectorAll(".inside-divs");
+  let isMouseDown = false;
+  const selectedColor = "black"; //default
+  backgroundColorSelection.addEventListener("change", (event) => {
+    selectedColor = event.target.value;
     cells.forEach((div) => {
       div.addEventListener("mousedown", () => {
         isMouseDown = true;
-        div.style.backgroundColor = "black";
+        div.style.backgroundColor = selectedColor;
       });
-      
+  
       div.addEventListener("mouseup", () => {
         isMouseDown = false;
       });
-      
+  
       div.addEventListener("mousemove", () => {
         if (isMouseDown) {
-          div.style.backgroundColor = "black";
+          div.style.backgroundColor = selectedColor;
         }
       });
-    });
-  }
+  })
+  });
+}
 // add a reset button to reset the display
-clearButton.addEventListener("click", ()=> {
+clearButton.addEventListener("click", () => {
   divContainer.innerHTML = "";
 });
 
@@ -124,10 +127,3 @@ backgroundColorSelection = document.createElement("input");
 backgroundColorSelection.setAttribute("type", "color");
 backgroundColorSelection.setAttribute("class", "color-picker");
 colorModeContainer.appendChild(backgroundColorSelection);
-
-//add function to addeventlistenerstodiv
-backgroundColorSelection.addEventListener("change", (event)=> {
-const selectedColor = event.target.value;
-document.querySelectorAll(".inside-divs").backgroundColor = selectedColor;
-
-})
