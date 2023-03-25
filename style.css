@@ -50,7 +50,7 @@ body{
 }
 
 #inside-divs-horizontal {
-    border: solid purple;
+    border: dotted thin blueviolet;
     width: 100%;
     height: 100%;
 }
