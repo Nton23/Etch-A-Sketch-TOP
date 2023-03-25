@@ -95,28 +95,33 @@ userButton.addEventListener("click", () => {
 //click then hold left click to color cells  
 function addEventListenersToDivs() {
   const cells = document.querySelectorAll(".inside-divs");
+  // set mouse click to false when not click
   let isMouseDown = false;
-  const selectedColor = "black"; //default
+  //set color to default at black
+  let defaultColor = "#000000";
   backgroundColorSelection.addEventListener("change", (event) => {
-    selectedColor = event.target.value;
-    cells.forEach((div) => {
-      div.addEventListener("mousedown", () => {
-        isMouseDown = true;
-        div.style.backgroundColor = selectedColor;
-      });
-  
-      div.addEventListener("mouseup", () => {
-        isMouseDown = false;
-      });
-  
-      div.addEventListener("mousemove", () => {
-        if (isMouseDown) {
-          div.style.backgroundColor = selectedColor;
-        }
-      });
-  })
+    defaultColor = event.target.value;
+  });
+  cells.forEach((div) => {
+    div.addEventListener("mousedown", () => {
+      isMouseDown = true;
+      if (div.style.backgroundColor === "") {
+        div.style.backgroundColor = defaultColor;
+      }
+    });
+
+    div.addEventListener("mouseup", () => {
+      isMouseDown = false;
+    });
+
+    div.addEventListener("mousemove", () => {
+      if (isMouseDown) {
+        div.style.backgroundColor = defaultColor;
+      }
+    });
   });
 }
+
 // add a reset button to reset the display
 clearButton.addEventListener("click", () => {
   divContainer.innerHTML = "";
@@ -126,4 +131,5 @@ clearButton.addEventListener("click", () => {
 backgroundColorSelection = document.createElement("input");
 backgroundColorSelection.setAttribute("type", "color");
 backgroundColorSelection.setAttribute("class", "color-picker");
+backgroundColorSelection.setAttribute("value", "#000000");
 colorModeContainer.appendChild(backgroundColorSelection);
