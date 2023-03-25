@@ -138,6 +138,10 @@ backgroundColorSelection.setAttribute("class", "color-picker");
 colorModeContainer.appendChild(backgroundColorSelection);
 
 //add a rainbow button
+rainbowColor = document.createElement("button");
+rainbowColor.setAttribute("id", "rainbow-color");
+rainbowColor.setAttribute("class", "lefty-buttons");
+rainbowModeContainer.appendChild(rainbowColor);
 
 
 //add a different background color
