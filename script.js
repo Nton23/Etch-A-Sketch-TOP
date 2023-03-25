@@ -98,22 +98,14 @@ function addEventListenersToDivs() {
   // set mouse click to false when not click
   let isMouseDown = false;
   //set rainbow button check to false
+ 
 
-  changeBackgroundColor.addEventListener("change", function () {
-    newBackground = changeBackgroundColor.value;
-  });
-
-  //set color to default at black
-  let defaultColor = "#000000";
-  backgroundColorSelection.addEventListener("change", (event) => {
-    defaultColor = event.target.value;
-  });
 
   cells.forEach((div) => {
-    div.style.backgroundColor = newBackground;
+    div.style.backgroundColor = changeBackgroundColor.value;
     div.addEventListener("mousedown", () => {
       isMouseDown = true;
-      div.style.backgroundColor = defaultColor;
+      div.style.backgroundColor = backgroundColorSelection.value;
     });
 
     div.addEventListener("mouseup", () => {
@@ -122,7 +114,7 @@ function addEventListenersToDivs() {
 
     div.addEventListener("mousemove", () => {
       if(isMouseDown) {
-        div.style.backgroundColor = defaultColor;
+        div.style.backgroundColor = backgroundColorSelection.value;
       }
     });
   });
@@ -139,6 +131,7 @@ clearButton.addEventListener("click", () => {
 backgroundColorSelection = document.createElement("input");
 backgroundColorSelection.setAttribute("type", "color");
 backgroundColorSelection.setAttribute("class", "color-picker");
+backgroundColorSelection.value = "#0000FF";
 colorModeContainer.appendChild(backgroundColorSelection);
 
 /*/add a rainbow button
@@ -160,6 +153,7 @@ rainbowModeContainer.appendChild(rainbowColor);
 changeBackgroundColor = document.createElement("input");
 changeBackgroundColor.setAttribute("type", "color");
 changeBackgroundColor.setAttribute("class", "color-picker");
+changeBackgroundColor.value = "#FFFFFF";
 colorContainer.appendChild(changeBackgroundColor);
 
 //rainbowColor.addEventListener("click", () => {
