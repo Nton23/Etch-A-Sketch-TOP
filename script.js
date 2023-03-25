@@ -125,6 +125,7 @@ function addEventListenersToDivs() {
 // add a reset button to reset the display
 clearButton.addEventListener("click", () => {
   divContainer.innerHTML = "";
+  backgroundColorSelection.value = "";
 });
 
 // add a color changing background when user select
