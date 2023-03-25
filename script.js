@@ -104,6 +104,7 @@ function addEventListenersToDivs() {
     defaultColor = event.target.value;
   });
   cells.forEach((div) => {
+    div.style.backgroundColor = changeBackgroundColor.value;
     div.addEventListener("mousedown", () => {
       isMouseDown = true;
       if (div.style.backgroundColor === "") {
@@ -127,11 +128,23 @@ function addEventListenersToDivs() {
 clearButton.addEventListener("click", () => {
   divContainer.innerHTML = "";
   backgroundColorSelection.value = "";
+  changeBackgroundColor.value = "";
 });
 
 // add a color changing background when user select
 backgroundColorSelection = document.createElement("input");
 backgroundColorSelection.setAttribute("type", "color");
 backgroundColorSelection.setAttribute("class", "color-picker");
-backgroundColorSelection.setAttribute("value", "#000000");
 colorModeContainer.appendChild(backgroundColorSelection);
+
+//add a rainbow button
+
+
+//add a different background color
+changeBackgroundColor = document.createElement("input");
+changeBackgroundColor.setAttribute("type", "color");
+changeBackgroundColor.setAttribute("class", "color-picker");
+colorContainer.appendChild(changeBackgroundColor);
+
+
+
