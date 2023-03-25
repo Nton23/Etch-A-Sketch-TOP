@@ -90,7 +90,6 @@ userButton.addEventListener("click", () => {
     createDiv(inputValue);
     userInputValue.value = "";
   }
-  //backgroundColorSelection.value = "";
 });
 
 //click then hold left click to color cells  
@@ -99,7 +98,8 @@ function addEventListenersToDivs() {
   // set mouse click to false when not click
   let isMouseDown = false;
   //set rainbow button check to false
-  changeBackgroundColor.addEventListener("input", function () {
+
+  changeBackgroundColor.addEventListener("change", function () {
     newBackground = changeBackgroundColor.value;
   });
 
@@ -141,7 +141,7 @@ backgroundColorSelection.setAttribute("type", "color");
 backgroundColorSelection.setAttribute("class", "color-picker");
 colorModeContainer.appendChild(backgroundColorSelection);
 
-//add a rainbow button
+/*/add a rainbow button
 rainbowColor = document.createElement("button");
 rainbowColor.setAttribute("id", "rainbow-color");
 rainbowColor.setAttribute("class", "lefty-buttons");
@@ -149,21 +149,20 @@ rainbowColor.textContent = "Rainbow";
 rainbowModeContainer.appendChild(rainbowColor);
 
 //create a function that generate a random rgb color
-function randomRGB() {
+/*function randomRGB() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
   return `rgb(${r},${g},${b})`;
 }
-
+*/
 //add a different background color
 changeBackgroundColor = document.createElement("input");
 changeBackgroundColor.setAttribute("type", "color");
 changeBackgroundColor.setAttribute("class", "color-picker");
-changeBackgroundColor.setAttribute("value", "#FFFFFF");
 colorContainer.appendChild(changeBackgroundColor);
 
-rainbowColor.addEventListener("click", () => {
-  rainbowCheck = !rainbowCheck;
-});
+//rainbowColor.addEventListener("click", () => {
+  //rainbowCheck = !rainbowCheck;
+//});
 
