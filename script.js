@@ -90,6 +90,7 @@ userButton.addEventListener("click", () => {
     createDiv(inputValue);
     userInputValue.value = "";
   }
+  backgroundColorSelection.value = "";
 });
 
 //click then hold left click to color cells  
