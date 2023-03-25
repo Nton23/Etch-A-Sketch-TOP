@@ -36,6 +36,7 @@ scrollerContainer.setAttribute("id", "scroller-container");
 //create a function to generate other divs
 function createDiv(divQty) {
   let userInput = divQty;
+  //the code below this lines will reset after you enter in a new number in the user input box
   divContainer.innerHTML = "";
   //loop through the number of time the user want
   //create each vertical container
@@ -54,6 +55,7 @@ function createDiv(divQty) {
 
     }
   }
+  //this function help you color the div 
   addEventListenersToDivs();
 };
 
@@ -96,7 +98,6 @@ userButton.addEventListener("click", () => {
 function addEventListenersToDivs() {
   const cells = document.querySelectorAll(".inside-divs");
   let isMouseDown = false;
-  const selectedColor = "black"; //default
   backgroundColorSelection.addEventListener("change", (event) => {
     selectedColor = event.target.value;
     cells.forEach((div) => {
@@ -114,7 +115,7 @@ function addEventListenersToDivs() {
           div.style.backgroundColor = selectedColor;
         }
       });
-  })
+    });
   });
 }
 // add a reset button to reset the display
