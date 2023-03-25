@@ -90,7 +90,7 @@ userButton.addEventListener("click", () => {
     createDiv(inputValue);
     userInputValue.value = "";
   }
-  backgroundColorSelection.value = "";
+  //backgroundColorSelection.value = "";
 });
 
 //click then hold left click to color cells  
@@ -99,8 +99,6 @@ function addEventListenersToDivs() {
   // set mouse click to false when not click
   let isMouseDown = false;
   //set rainbow button check to false
-  let rainbowCheck = false;
-  
   changeBackgroundColor.addEventListener("input", function () {
     newBackground = changeBackgroundColor.value;
   });
@@ -110,15 +108,12 @@ function addEventListenersToDivs() {
   backgroundColorSelection.addEventListener("change", (event) => {
     defaultColor = event.target.value;
   });
+
   cells.forEach((div) => {
     div.style.backgroundColor = newBackground;
     div.addEventListener("mousedown", () => {
       isMouseDown = true;
-      if (rainbowCheck) {
-        div.style.backgroundColor = randomRGB();
-      } else {
-        div.style.backgroundColor = defaultColor;
-      }
+      div.style.backgroundColor = defaultColor;
     });
 
     div.addEventListener("mouseup", () => {
@@ -126,12 +121,8 @@ function addEventListenersToDivs() {
     });
 
     div.addEventListener("mousemove", () => {
-      if (isMouseDown) {
-        if (rainbowCheck) {
-          div.style.backgroundColor = randomRGB();
-        } else {
-          div.style.backgroundColor = defaultColor;
-        }
+      if(isMouseDown) {
+        div.style.backgroundColor = defaultColor;
       }
     });
   });
@@ -172,5 +163,7 @@ changeBackgroundColor.setAttribute("class", "color-picker");
 changeBackgroundColor.setAttribute("value", "#FFFFFF");
 colorContainer.appendChild(changeBackgroundColor);
 
-
+rainbowColor.addEventListener("click", () => {
+  rainbowCheck = !rainbowCheck;
+});
 
