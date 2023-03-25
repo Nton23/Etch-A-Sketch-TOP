@@ -98,16 +98,25 @@ function addEventListenersToDivs() {
   const cells = document.querySelectorAll(".inside-divs");
   // set mouse click to false when not click
   let isMouseDown = false;
+  //set rainbow button check to false
+  let rainbowCheck = false;
+  
+  changeBackgroundColor.addEventListener("input", function () {
+    newBackground = changeBackgroundColor.value;
+  });
+
   //set color to default at black
   let defaultColor = "#000000";
   backgroundColorSelection.addEventListener("change", (event) => {
     defaultColor = event.target.value;
   });
   cells.forEach((div) => {
-    div.style.backgroundColor = changeBackgroundColor.value;
+    div.style.backgroundColor = newBackground;
     div.addEventListener("mousedown", () => {
       isMouseDown = true;
-      if (div.style.backgroundColor === "") {
+      if (rainbowCheck) {
+        div.style.backgroundColor = randomRGB();
+      } else {
         div.style.backgroundColor = defaultColor;
       }
     });
@@ -118,7 +127,11 @@ function addEventListenersToDivs() {
 
     div.addEventListener("mousemove", () => {
       if (isMouseDown) {
-        div.style.backgroundColor = defaultColor;
+        if (rainbowCheck) {
+          div.style.backgroundColor = randomRGB();
+        } else {
+          div.style.backgroundColor = defaultColor;
+        }
       }
     });
   });
@@ -128,7 +141,7 @@ function addEventListenersToDivs() {
 clearButton.addEventListener("click", () => {
   divContainer.innerHTML = "";
   backgroundColorSelection.value = "";
-  changeBackgroundColor.value = "";
+  changeBackgroundColor.value = "#FFFFFF";
 });
 
 // add a color changing background when user select
@@ -141,13 +154,22 @@ colorModeContainer.appendChild(backgroundColorSelection);
 rainbowColor = document.createElement("button");
 rainbowColor.setAttribute("id", "rainbow-color");
 rainbowColor.setAttribute("class", "lefty-buttons");
+rainbowColor.textContent = "Rainbow";
 rainbowModeContainer.appendChild(rainbowColor);
 
+//create a function that generate a random rgb color
+function randomRGB() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r},${g},${b})`;
+}
 
 //add a different background color
 changeBackgroundColor = document.createElement("input");
 changeBackgroundColor.setAttribute("type", "color");
 changeBackgroundColor.setAttribute("class", "color-picker");
+changeBackgroundColor.setAttribute("value", "#FFFFFF");
 colorContainer.appendChild(changeBackgroundColor);
 
 
