@@ -92,6 +92,7 @@ userButton.addEventListener("click", () => {
   }
 });
 
+
 //click then hold left click to color cells  
 function addEventListenersToDivs() {
   const cells = document.querySelectorAll(".inside-divs");
