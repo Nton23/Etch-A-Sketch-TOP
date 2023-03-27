@@ -75,7 +75,6 @@ const userButton = document.querySelector("#user-button");
 const userInputValue = document.querySelector("#user-input");
 scrollerContainer.appendChild(userButton);
 scrollerContainer.appendChild(userInputValue);
-
 //clear button 
 const clearButton = document.createElement("button");
 clearButton.setAttribute("id", "clear-button")
@@ -99,27 +98,47 @@ function addEventListenersToDivs() {
   // set mouse click to false when not click
   let isMouseDown = false;
   //set rainbow button check to false
- 
-
+  let rainbowCheck = false;
 
   cells.forEach((div) => {
     div.style.backgroundColor = changeBackgroundColor.value;
-    div.addEventListener("mousedown", () => {
-      isMouseDown = true;
-      div.style.backgroundColor = backgroundColorSelection.value;
-    });
-
-    div.addEventListener("mouseup", () => {
-      isMouseDown = false;
-    });
-
-    div.addEventListener("mousemove", () => {
-      if(isMouseDown) {
+    if (rainbowCheck) {
+      div.addEventListener("mousedown", () => {
+        isMouseDown = true;
+        div.style.backgroundColor = randomRGB();
+      });
+      
+      div.addEventListener("mouseup", () => {
+        isMouseDown = false;
+      });
+      
+      div.addEventListener("mousemove", () => {
+        if(isMouseDown) {
+          div.style.backgroundColor = randomRGB();
+        }
+      });
+    } else {
+      div.addEventListener("mousedown", () => {
+        isMouseDown = true;
         div.style.backgroundColor = backgroundColorSelection.value;
-      }
-    });
+      });
+  
+      div.addEventListener("mouseup", () => {
+        isMouseDown = false;
+      });
+  
+      div.addEventListener("mousemove", () => {
+        if(isMouseDown) {
+          div.style.backgroundColor = backgroundColorSelection.value;
+        }
+      });
+    }
   });
 }
+
+rainbowColor.addEventListener("click", () => {
+  rainbowCheck = !rainbowCheck;
+});
 
 // add a reset button to reset the display
 clearButton.addEventListener("click", () => {
@@ -135,7 +154,7 @@ backgroundColorSelection.setAttribute("class", "color-picker");
 backgroundColorSelection.value = "#0000FF";
 colorModeContainer.appendChild(backgroundColorSelection);
 
-/*/add a rainbow button
+
 rainbowColor = document.createElement("button");
 rainbowColor.setAttribute("id", "rainbow-color");
 rainbowColor.setAttribute("class", "lefty-buttons");
@@ -143,13 +162,13 @@ rainbowColor.textContent = "Rainbow";
 rainbowModeContainer.appendChild(rainbowColor);
 
 //create a function that generate a random rgb color
-/*function randomRGB() {
+function randomRGB() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
   return `rgb(${r},${g},${b})`;
 }
-*/
+
 //add a different background color
 changeBackgroundColor = document.createElement("input");
 changeBackgroundColor.setAttribute("type", "color");
@@ -157,7 +176,4 @@ changeBackgroundColor.setAttribute("class", "color-picker");
 changeBackgroundColor.value = "#FFFFFF";
 colorContainer.appendChild(changeBackgroundColor);
 
-//rainbowColor.addEventListener("click", () => {
-  //rainbowCheck = !rainbowCheck;
-//});
 
