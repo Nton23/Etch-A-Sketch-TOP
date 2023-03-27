@@ -92,14 +92,18 @@ userButton.addEventListener("click", () => {
 });
 
 
+const cells = document.querySelectorAll(".inside-divs");
+// set mouse click to false when not click
+let isMouseDown = false;
+//set rainbow button check to false
+let rainbowCheck = true;
+
+rainbowColor.addEventListener("click", () => {
+  rainbowCheck = !rainbowCheck;
+});
+
 //click then hold left click to color cells  
 function addEventListenersToDivs() {
-  const cells = document.querySelectorAll(".inside-divs");
-  // set mouse click to false when not click
-  let isMouseDown = false;
-  //set rainbow button check to false
-  let rainbowCheck = false;
-
   cells.forEach((div) => {
     div.style.backgroundColor = changeBackgroundColor.value;
     if (rainbowCheck) {
@@ -135,10 +139,6 @@ function addEventListenersToDivs() {
     }
   });
 }
-
-rainbowColor.addEventListener("click", () => {
-  rainbowCheck = !rainbowCheck;
-});
 
 // add a reset button to reset the display
 clearButton.addEventListener("click", () => {
