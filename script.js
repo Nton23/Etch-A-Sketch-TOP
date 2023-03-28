@@ -12,12 +12,14 @@ let rightSideCanvas = document.getElementById("right-side-canvas");
 //let cells = document.getElementsByClassName("cells");
 
 //Worlds declare variables
-let value;
+let value = 0;
+let userRangeInputValue = 0;
 
 
 //display celss on the right side function
-function createCells (userInput) {
+function createCells(userInput) {
     value = userInput;
+    rightSideCanvas.innerHTML = "";
     for (let i = 0; i < value; i++) {
         let verticalCells = document.createElement("div");
         verticalCells.setAttribute("class", "vertical-cells");
@@ -28,6 +30,13 @@ function createCells (userInput) {
             verticalCells.appendChild(horizontalCells);
         }
     }
+    displayUserValue.innerHTML = `Current input: ${userRangeInput.value} x ${userRangeInput.value}`;
 }
 
-//get user input 
+//display the default userinput which is 16
+createCells(userRangeInput.value)
+//get user input value
+userRangeInput.addEventListener("input", (event) => {
+    userRangeInputValue = event.target.value;
+    createCells(userRangeInputValue);
+})
