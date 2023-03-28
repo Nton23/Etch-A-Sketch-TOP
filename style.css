@@ -56,6 +56,11 @@ body {
     height: 50px;
 }
 
+#user-range-display {
+    display: flex;
+    flex-direction: column;
+}
+
 #right-side-container {
     border: solid blue;
     width: 70%;
