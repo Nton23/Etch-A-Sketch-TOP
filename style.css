@@ -75,15 +75,8 @@ body {
     flex-direction: column;
     align-items: stretch;
 }
-.vertical-cells {
-    border: dotted thin blue;
-    width: 100%;
-    height: 100%;
-    display: flex;
-}
-
-.horizontal-cells {
-    border: dotted thin blue;
+.cells {
+    border: dotted thin grey;
     width: 100%;
     height: 100%;
     display: flex;
