@@ -61,3 +61,25 @@ body {
     width: 70%;
     height: 70vh;
 }
+
+#right-side-canvas {
+    border: solid red;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.vertical-cells {
+    border: dotted thin blue;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.horizontal-cells {
+    border: dotted thin blue;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
