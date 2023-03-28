@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,46 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Etch-A-Sketch</title>
 </head>
+
 <body>
-    <button id="user-button">Enter Number</button>
-    <input id="user-input" type="number"  min="1" max="100" placeholder="enter number here">
+    <div id="div-container">
+        <div id="box-container">
+            <div id="left-side-container">
+                <ul id="li-container">
+                    <li class="button-container">
+                        <input type="color" id="background-color-picker" class="buttons" value="#000000">
+                    </li>
+                    <li class="button-container">
+                        <input type="color" id="pen-color-picker" class="buttons">
+                    </li>
+                    <li class="button-container">
+                        <button type="button" id="pen-rainbow-color" class="buttons">Rainbow</button>
+                    </li>
+                    <li class="button-container">
+                        <button type="button" id="eraser-button" class="buttons">Eraser</button>
+                    </li>
+                    <li class="button-container">
+                        <button type="button" id="clear-button" class="buttons">Clear</button>
+                    </li>
+                    <li class="button-container">
+                        <button type="button" id="light-color-button" class="buttons">Lighter-Color</button>
+                    </li>
+                    <li class="button-container">
+                        <button type="button" id="dark-color-button" class="buttons">Darker-Color</button>
+                    </li>
+                    <li class="button-container" id="user-range-display"><span id="display-user-value"></span>
+                        <input type="range" id="user-range-input" value="16" min="2" max="100">
+                    </li>
+                </ul>
+            </div>
+            <div id="right-side-container">
+                <div id="right-side-canvas">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
