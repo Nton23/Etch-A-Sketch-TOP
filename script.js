@@ -14,7 +14,9 @@ let rightSideCanvas = document.getElementById("right-side-canvas");
 //Worlds declare variables
 let value = 0;
 let userRangeInputValue = 0;
-
+let backgroundValue = 0;
+const cell= document.querySelectorAll(".cells");
+let isMouseDown = false;
 
 //display celss on the right side function
 function createCells(userInput) {
@@ -22,21 +24,41 @@ function createCells(userInput) {
     rightSideCanvas.innerHTML = "";
     for (let i = 0; i < value; i++) {
         let verticalCells = document.createElement("div");
-        verticalCells.setAttribute("class", "vertical-cells");
+        verticalCells.setAttribute("class", "cells");
+        verticalCells.setAttribute("id", "vertical-cells");
         rightSideCanvas.appendChild(verticalCells);
         for(let j = 0; j < value; j++) {
             let horizontalCells = document.createElement("div");
-            horizontalCells.setAttribute("class", "horizontal-cells");
+            horizontalCells.setAttribute("class", "cells");
+            horizontalCells.setAttribute("id", "horizontal-cells");
             verticalCells.appendChild(horizontalCells);
         }
     }
     displayUserValue.innerHTML = `Current input: ${userRangeInput.value} x ${userRangeInput.value}`;
-}
+    addEventListenerToCells();
+};
 
 //display the default userinput which is 16
 createCells(userRangeInput.value)
+
 //get user input value
 userRangeInput.addEventListener("input", (event) => {
     userRangeInputValue = event.target.value;
     createCells(userRangeInputValue);
-})
+});
+
+//add a function to cells 
+function addEventListenerToCells() {
+    cell.forEach((div) => {
+        div.addEventListener("mousedown", () => {
+            isMouseDown = true;
+            div.style.backgroundColor = penColorPicker.value;
+        })
+        div.addEventListener("mouseup", () => {
+            isMouseDown = false;
+        })
+        div.addEventListener("mousemove", () => {
+            div.style.backgroundColor = penColorPicker.value;
+        })
+    })
+};
