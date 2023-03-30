@@ -9,10 +9,7 @@ const darkColorButton = document.getElementById("dark-color-button");
 const displayUserValue = document.getElementById("display-user-value");
 const userRangeInput = document.getElementById("user-range-input");
 const rightSideCanvas = document.getElementById("right-side-canvas");
-//let cells = document.getElementsByClassName("cells");
 
-//
-let backgroundColorValue = "";
 //display celss on the right side function
 function createCells(userInput) {
   let value = 0;
