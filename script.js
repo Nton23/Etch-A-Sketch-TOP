@@ -12,7 +12,6 @@ const rightSideCanvas = document.getElementById("right-side-canvas");
 
 
 //global variable
-let backgroundColorValue = "";
 
 //display celss on the right side function
 /* This function right here is to create grid
@@ -53,7 +52,7 @@ function createCells(userInput) {
   defaultPenColor();
 };
 //display the default userinput which is 16
-createCells(userRangeInput.value)
+createCells(userRangeInput.value);
 
 //get user input value
 userRangeInput.addEventListener("input", (event) => {
@@ -72,7 +71,7 @@ function addEventListenerToBackgroundCell() {
 //this is an event that will get the value color everytime the user select the color
 //it will also call the function addEventListenerToBackgroundCell() 
 backgroundColorPicker.addEventListener("change", (event) => {
-   backgroundColorValue = event.target.value;
+  backgroundColorValue = event.target.value;
   addEventListenerToBackgroundCell();
 });
 
@@ -183,4 +182,9 @@ function eraser () {
 //eraser button event call the eraser function
 eraserButton.addEventListener("click", () => {
   eraser();
+})
+
+//create a clear event
+clearButton.addEventListener("click", () => {
+  createCells(16);
 })
