@@ -1,93 +1,83 @@
-:root {
-
-}
-
-*{
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-body{
-    background-color: beige;
-    height: 100vh;
-    width: 100%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-#user-interface-container {
-    border: solid blue;
-    width: 1000px;
-    height: 800px;
+body {
     display: flex;
     justify-content: center;
 }
-
 #div-container {
     border: solid blue;
-    max-width: 960px;
+    width: 1200px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#box-container {
+    border: solid blue;
+    width: 1000px;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+
+}
+
+#left-side-container {
+    border: solid blue;
+    width: 30%;
+    height: 70vh;
+}
+
+#li-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+}
+
+.button-container {
+    border: solid blue;
+    width: 200px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    border: solid blue;
+    width: 150px;
+    height: 50px;
+}
+
+#user-range-display {
+    display: flex;
+    flex-direction: column;
+}
+
+#right-side-container {
+    border: solid blue;
+    width: 70%;
+    height: 70vh;
+}
+
+#right-side-canvas {
+    border: solid red;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
-
-#div-left-side-container {
-    border: solid red;
-    width: 280px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-}
-#inside-divs-vertical {
+.cells {
+    border: dotted thin grey;
     width: 100%;
     height: 100%;
     display: flex;
-}
-
-#inside-divs-horizontal {
-    border: dotted thin blueviolet;
-    width: 100%;
-    height: 100%;
-}
-
-#color-container {
-    border: solid red;
-    width: 100px;
-    height: 50px;
-}
-
-.lefty-container {
-    border: solid orange;
-    width: 100px;
-    height: 50px;
-}
-
-#scroller-container {
-    border: solid red;
-    width: 150px;
-    height: 50px;
-    display: flex;
-    
-}
-#user-input {
-    width: 100px;
-}
-.inside-divs{
-    background: beige;
-}
-
-#clear-button {
-    width: 80px;
-    height: 40px;
-}
-
-.color-picker {
-    width: 80px;
-    height: 40px;
-    border: solid blue;
 }
