@@ -94,7 +94,7 @@ function defaultPenColor() {
   })
 }
 
-
+//this function is to give the horizontal divs color when user click and move the mouse
 function addPenColorPicker() {
   let isMouseDown = false;
   const cell = document.querySelectorAll("#horizontal-cells");
@@ -114,6 +114,8 @@ function addPenColorPicker() {
   })
 };
 
+//this event will select the user selected color
+//will call the function addPenColorPicker and give its color to the function inside
 penColorPicker.addEventListener("change", (event) => {
   penColorValue = event.target.value;
   addPenColorPicker();
