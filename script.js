@@ -12,38 +12,41 @@ const rightSideCanvas = document.getElementById("right-side-canvas");
 //let cells = document.getElementsByClassName("cells");
 
 //
-let penColorValue = "";
+let backgroundColorValue = "";
 //display celss on the right side function
 function createCells(userInput) {
-    let value = 0;
-    value = userInput;
-    rightSideCanvas.innerHTML = "";
-    for (let i = 0; i < value; i++) {
-        let verticalCells = document.createElement("div");
-        verticalCells.setAttribute("class", "cells");
-        verticalCells.setAttribute("id", "vertical-cells");
-        rightSideCanvas.appendChild(verticalCells);
-        for(let j = 0; j < value; j++) {
-            let horizontalCells = document.createElement("div");
-            horizontalCells.setAttribute("class", "cells");
-            horizontalCells.setAttribute("id", "horizontal-cells");
-            verticalCells.appendChild(horizontalCells);
-        }
+  let value = 0;
+  value = userInput;
+  rightSideCanvas.innerHTML = "";
+  backgroundColorPicker.value = "#FFFFFF";
+  penColorPicker.value = "#000000";
+  for (let i = 0; i < value; i++) {
+    let verticalCells = document.createElement("div");
+    verticalCells.setAttribute("class", "cells");
+    verticalCells.setAttribute("id", "vertical-cells");
+    rightSideCanvas.appendChild(verticalCells);
+    for (let j = 0; j < value; j++) {
+      let horizontalCells = document.createElement("div");
+      horizontalCells.setAttribute("class", "cells");
+      horizontalCells.setAttribute("id", "horizontal-cells");
+      verticalCells.appendChild(horizontalCells);
     }
-    displayUserValue.innerHTML = `Current input: ${userRangeInput.value} x ${userRangeInput.value}`;
+  }
+  displayUserValue.innerHTML = `Current input: ${userRangeInput.value} x ${userRangeInput.value}`;
+  defaultPenColor();
 };
 //display the default userinput which is 16
 createCells(userRangeInput.value)
 
 //get user input value
 userRangeInput.addEventListener("input", (event) => {
-   let userRangeInputValue = event.target.value;
-    createCells(userRangeInputValue);
+  let userRangeInputValue = event.target.value;
+  createCells(userRangeInputValue);
 });
 
 function addEventListenerToBackgroundCell() {
-  const backgroundCell = document.querySelectorAll ("#vertical-cells");
-   backgroundCell.forEach((div) => {
+  const backgroundCell = document.querySelectorAll("#vertical-cells");
+  backgroundCell.forEach((div) => {
     div.style.backgroundColor = backgroundColorValue;
   })
 };
@@ -53,23 +56,43 @@ backgroundColorPicker.addEventListener("change", (event) => {
   addEventListenerToBackgroundCell();
 });
 
-function addPenColorPicker () {
+function defaultPenColor() {
+  penColorValue = "#000000";
   let isMouseDown = false;
   const cell = document.querySelectorAll("#horizontal-cells");
-    cell.forEach((div) => {
-                div.addEventListener("mousedown", () => {
-            isMouseDown = true;
-            div.style.backgroundColor = penColorValue;
-        })
-        div.addEventListener("mouseup", () => {
-            isMouseDown = false;
-        })
-        div.addEventListener("mousemove", () => {
-           if(isMouseDown)
-           {
-          div.style.backgroundColor = penColorValue; }
-        })
+  cell.forEach((div) => {
+    div.addEventListener("mousedown", () => {
+      isMouseDown = true;
+      div.style.backgroundColor = penColorValue;
     })
+    div.addEventListener("mouseup", () => {
+      isMouseDown = false;
+    })
+    div.addEventListener("mousemove", () => {
+      if (isMouseDown) {
+        div.style.backgroundColor = penColorValue;
+      }
+    })
+  })
+}
+
+function addPenColorPicker() {
+  let isMouseDown = false;
+  const cell = document.querySelectorAll("#horizontal-cells");
+  cell.forEach((div) => {
+    div.addEventListener("mousedown", () => {
+      isMouseDown = true;
+      div.style.backgroundColor = penColorValue;
+    })
+    div.addEventListener("mouseup", () => {
+      isMouseDown = false;
+    })
+    div.addEventListener("mousemove", () => {
+      if (isMouseDown) {
+        div.style.backgroundColor = penColorValue;
+      }
+    })
+  })
 };
 
 penColorPicker.addEventListener("change", (event) => {
@@ -87,22 +110,22 @@ function randomRGB() {
 function addRainbowColorCells() {
   let isMouseDown = false;
   const cell = document.querySelectorAll("#horizontal-cells");
-    cell.forEach((div) => {
-                div.addEventListener("mousedown", () => {
-            isMouseDown = true;
-            div.style.backgroundColor = randomRGB();
-        })
-        div.addEventListener("mouseup", () => {
-            isMouseDown = false;
-        })
-        div.addEventListener("mousemove", () => {
-           if(isMouseDown)
-           {
-          div.style.backgroundColor = randomRGB(); }
-        })
+  cell.forEach((div) => {
+    div.addEventListener("mousedown", () => {
+      isMouseDown = true;
+      div.style.backgroundColor = randomRGB();
     })
+    div.addEventListener("mouseup", () => {
+      isMouseDown = false;
+    })
+    div.addEventListener("mousemove", () => {
+      if (isMouseDown) {
+        div.style.backgroundColor = randomRGB();
+      }
+    })
+  })
 };
 
-penRainbowColor.addEventListener("click", (event) => {
+penRainbowColor.addEventListener("click", () => {
   addRainbowColorCells();
 });
