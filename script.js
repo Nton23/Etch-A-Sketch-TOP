@@ -12,7 +12,7 @@ const rightSideCanvas = document.getElementById("right-side-canvas");
 //let cells = document.getElementsByClassName("cells");
 
 //
-//let penColorValue = "";
+let penColorValue = "";
 //display celss on the right side function
 function createCells(userInput) {
     let value = 0;
@@ -43,7 +43,7 @@ userRangeInput.addEventListener("input", (event) => {
 
 function addEventListenerToBackgroundCell() {
   const backgroundCell = document.querySelectorAll ("#vertical-cells");
-  backgroundCell.forEach((div) => {
+   backgroundCell.forEach((div) => {
     div.style.backgroundColor = backgroundColorValue;
   })
 };
