@@ -42,7 +42,10 @@ function createCells(userInput) {
       verticalCells.appendChild(horizontalCells);
     }
   }
+  //this line is to display the user input to let the user know the value they've enter
   displayUserValue.innerHTML = `Current input: ${userRangeInput.value} x ${userRangeInput.value}`;
+  //this line is to call the function default pen color.
+  //It will generate whatever the color is in the function without clicking on the color picker.
   defaultPenColor();
 };
 //display the default userinput which is 16
@@ -54,6 +57,7 @@ userRangeInput.addEventListener("input", (event) => {
   createCells(userRangeInputValue);
 });
 
+//this is a function to select vertical divs and give it the color
 function addEventListenerToBackgroundCell() {
   const backgroundCell = document.querySelectorAll("#vertical-cells");
   backgroundCell.forEach((div) => {
@@ -61,11 +65,15 @@ function addEventListenerToBackgroundCell() {
   })
 };
 
+//this is an event that will get the value color everytime the user select the color
+//it will also call the function addEventListenerToBackgroundCell() 
 backgroundColorPicker.addEventListener("change", (event) => {
-  backgroundColorValue = event.target.value;
+  let backgroundColorValue = event.target.value;
   addEventListenerToBackgroundCell();
 });
 
+//This function is to put in the createCell() function
+//let you use the default color which is black 
 function defaultPenColor() {
   penColorValue = "#000000";
   let isMouseDown = false;
@@ -85,6 +93,7 @@ function defaultPenColor() {
     })
   })
 }
+
 
 function addPenColorPicker() {
   let isMouseDown = false;
