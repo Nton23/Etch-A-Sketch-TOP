@@ -1,25 +1,21 @@
 //create variables and assign it to id/class in html
-let backgroundColorPicker = document.getElementById("background-color-picker");
-let penColorPicker = document.getElementById("pen-color-picker");
-let penRainbowColor = document.getElementById("pen-rainbow-color");
-let eraserButton = document.getElementById("eraser-button");
-let clearButton = document.getElementById("clear-button");
-let lightColorButton = document.getElementById("light-color-button");
-let darkColorButton = document.getElementById("dark-color-button");
-let displayUserValue = document.getElementById("display-user-value");
-let userRangeInput = document.getElementById("user-range-input");
-let rightSideCanvas = document.getElementById("right-side-canvas");
+const backgroundColorPicker = document.getElementById("background-color-picker");
+const penColorPicker = document.getElementById("pen-color-picker");
+const penRainbowColor = document.getElementById("pen-rainbow-color");
+const eraserButton = document.getElementById("eraser-button");
+const clearButton = document.getElementById("clear-button");
+const lightColorButton = document.getElementById("light-color-button");
+const darkColorButton = document.getElementById("dark-color-button");
+const displayUserValue = document.getElementById("display-user-value");
+const userRangeInput = document.getElementById("user-range-input");
+const rightSideCanvas = document.getElementById("right-side-canvas");
 //let cells = document.getElementsByClassName("cells");
 
-//Worlds declare variables
-let value = 0;
-let userRangeInputValue = 0;
-let backgroundValue = 0;
-const cell= document.querySelectorAll(".cells");
-let isMouseDown = false;
-
+//
+//let penColorValue = "";
 //display celss on the right side function
 function createCells(userInput) {
+    let value = 0;
     value = userInput;
     rightSideCanvas.innerHTML = "";
     for (let i = 0; i < value; i++) {
@@ -35,30 +31,78 @@ function createCells(userInput) {
         }
     }
     displayUserValue.innerHTML = `Current input: ${userRangeInput.value} x ${userRangeInput.value}`;
-    addEventListenerToCells();
 };
-
 //display the default userinput which is 16
 createCells(userRangeInput.value)
 
 //get user input value
 userRangeInput.addEventListener("input", (event) => {
-    userRangeInputValue = event.target.value;
+   let userRangeInputValue = event.target.value;
     createCells(userRangeInputValue);
 });
 
-//add a function to cells 
-function addEventListenerToCells() {
+function addEventListenerToBackgroundCell() {
+  const backgroundCell = document.querySelectorAll ("#vertical-cells");
+  backgroundCell.forEach((div) => {
+    div.style.backgroundColor = backgroundColorValue;
+  })
+};
+
+backgroundColorPicker.addEventListener("change", (event) => {
+  backgroundColorValue = event.target.value;
+  addEventListenerToBackgroundCell();
+});
+
+function addPenColorPicker () {
+  let isMouseDown = false;
+  const cell = document.querySelectorAll("#horizontal-cells");
     cell.forEach((div) => {
-        div.addEventListener("mousedown", () => {
+                div.addEventListener("mousedown", () => {
             isMouseDown = true;
-            div.style.backgroundColor = penColorPicker.value;
+            div.style.backgroundColor = penColorValue;
         })
         div.addEventListener("mouseup", () => {
             isMouseDown = false;
         })
         div.addEventListener("mousemove", () => {
-            div.style.backgroundColor = penColorPicker.value;
+           if(isMouseDown)
+           {
+          div.style.backgroundColor = penColorValue; }
         })
     })
 };
+
+penColorPicker.addEventListener("change", (event) => {
+  penColorValue = event.target.value;
+  addPenColorPicker();
+});
+
+function randomRGB() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r},${g},${b})`;
+}
+
+function addRainbowColorCells() {
+  let isMouseDown = false;
+  const cell = document.querySelectorAll("#horizontal-cells");
+    cell.forEach((div) => {
+                div.addEventListener("mousedown", () => {
+            isMouseDown = true;
+            div.style.backgroundColor = randomRGB();
+        })
+        div.addEventListener("mouseup", () => {
+            isMouseDown = false;
+        })
+        div.addEventListener("mousemove", () => {
+           if(isMouseDown)
+           {
+          div.style.backgroundColor = randomRGB(); }
+        })
+    })
+};
+
+penRainbowColor.addEventListener("click", (event) => {
+  addRainbowColorCells();
+});
