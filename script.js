@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 //create variables and assign it to id/class in html
 const backgroundColorPicker = document.getElementById("background-color-picker");
 const penColorPicker = document.getElementById("pen-color-picker");
@@ -190,4 +188,3 @@ eraserButton.addEventListener("click", () => {
 clearButton.addEventListener("click", () => {
   createCells(16);
 })
->>>>>>> refs/remotes/origin/main
