@@ -121,6 +121,7 @@ penColorPicker.addEventListener("change", (event) => {
   addPenColorPicker();
 });
 
+//this function to generate random color rgb()
 function randomRGB() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
