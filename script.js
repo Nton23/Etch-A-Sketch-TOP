@@ -11,21 +11,34 @@ const userRangeInput = document.getElementById("user-range-input");
 const rightSideCanvas = document.getElementById("right-side-canvas");
 
 //display celss on the right side function
+/* This function right here is to create grid
+It'll take user input from the range type and create the squares
+*/
 function createCells(userInput) {
   let value = 0;
   value = userInput;
+  //this line right here is to reset the right side canvas back to normal
+  //Or else everytime this function is updated, it will create another function on top of it
   rightSideCanvas.innerHTML = "";
+  //everytime the user input is different, the background color value will go back to #FFFFFF
   backgroundColorPicker.value = "#FFFFFF";
+  //Same thing with the pencolorpicker, it will go back to color #000000
   penColorPicker.value = "#000000";
+  //this first for loop is to make the vertical cell(s) which will contain the second for loop
   for (let i = 0; i < value; i++) {
+    //Create vertical div everytime the loop go through
     let verticalCells = document.createElement("div");
+    //give it the attribute such as class and id
     verticalCells.setAttribute("class", "cells");
     verticalCells.setAttribute("id", "vertical-cells");
+    //This will make the div go in the right side canvas div bracket
     rightSideCanvas.appendChild(verticalCells);
+    //this second loop is to loop through and create horizontal divs/cells
     for (let j = 0; j < value; j++) {
       let horizontalCells = document.createElement("div");
       horizontalCells.setAttribute("class", "cells");
       horizontalCells.setAttribute("id", "horizontal-cells");
+      //we want this horizontal divs to go inside the vertical div bracket
       verticalCells.appendChild(horizontalCells);
     }
   }
