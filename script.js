@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 //create variables and assign it to id/class in html
 const backgroundColorPicker = document.getElementById("background-color-picker");
 const penColorPicker = document.getElementById("pen-color-picker");
@@ -12,8 +10,6 @@ const displayUserValue = document.getElementById("display-user-value");
 const userRangeInput = document.getElementById("user-range-input");
 const rightSideCanvas = document.getElementById("right-side-canvas");
 
-
-//global variable
 
 //display celss on the right side function
 /* This function right here is to create grid
@@ -48,7 +44,7 @@ function createCells(userInput) {
     }
   }
   //this line is to display the user input to let the user know the value they've enter
-  displayUserValue.innerHTML = `Current input: ${userRangeInput.value} x ${userRangeInput.value}`;
+  displayUserValue.innerHTML = `Current input: ${value} x ${value}`;
   //this line is to call the function default pen color.
   //It will generate whatever the color is in the function without clicking on the color picker.
   defaultPenColor();
@@ -73,6 +69,7 @@ function addEventListenerToBackgroundCell() {
 //this is an event that will get the value color everytime the user select the color
 //it will also call the function addEventListenerToBackgroundCell() 
 backgroundColorPicker.addEventListener("change", (event) => {
+  backgroundColorPicker.style.background = "blue";
   backgroundColorValue = event.target.value;
   addEventListenerToBackgroundCell();
 });
@@ -122,6 +119,9 @@ function addPenColorPicker() {
 //this event will select the user selected color
 //will call the function addPenColorPicker and give its color to the function inside
 penColorPicker.addEventListener("change", (event) => {
+  penColorPicker.style.backgroundColor = "blue";
+  penRainbowColor.style.backgroundColor = "white";
+  eraserButton.style.backgroundColor = "white";
   penColorValue = event.target.value;
   addPenColorPicker();
 });
@@ -157,6 +157,9 @@ function addRainbowColorCells() {
 
 //this is an event, it will call the addRainbowColorCell function when the button is clicked
 penRainbowColor.addEventListener("click", () => {
+  penColorPicker.style.backgroundColor = "white";
+  eraserButton.style.backgroundColor = "white";
+  penRainbowColor.style.backgroundColor = "blue";
   addRainbowColorCells();
 });
 
@@ -183,11 +186,17 @@ function eraser () {
 
 //eraser button event call the eraser function
 eraserButton.addEventListener("click", () => {
+  penColorPicker.style.backgroundColor = "white";
+  penRainbowColor.style.backgroundColor = "white";
+  eraserButton.style.backgroundColor = "blue";
   eraser();
 })
 
 //create a clear event
 clearButton.addEventListener("click", () => {
-  createCells(16);
+  penColorPicker.style.backgroundColor = "white";
+  penRainbowColor.style.backgroundColor = "white";
+  eraserButton.style.backgroundColor = "white";
+  backgroundColorPicker.style.backgroundColor = "white";
+  createCells(userRangeInput.value);
 })
->>>>>>> refs/remotes/origin/main
