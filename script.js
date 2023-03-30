@@ -186,5 +186,5 @@ eraserButton.addEventListener("click", () => {
 
 //create a clear event
 clearButton.addEventListener("click", () => {
-  createCells(16);
+  createCells(userRangeInput.value);
 })
