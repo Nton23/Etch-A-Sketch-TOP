@@ -10,6 +10,10 @@ const displayUserValue = document.getElementById("display-user-value");
 const userRangeInput = document.getElementById("user-range-input");
 const rightSideCanvas = document.getElementById("right-side-canvas");
 
+
+//global variable
+let backgroundColorValue = "";
+
 //display celss on the right side function
 /* This function right here is to create grid
 It'll take user input from the range type and create the squares
@@ -68,7 +72,7 @@ function addEventListenerToBackgroundCell() {
 //this is an event that will get the value color everytime the user select the color
 //it will also call the function addEventListenerToBackgroundCell() 
 backgroundColorPicker.addEventListener("change", (event) => {
-  let backgroundColorValue = event.target.value;
+   backgroundColorValue = event.target.value;
   addEventListenerToBackgroundCell();
 });
 
@@ -129,6 +133,8 @@ function randomRGB() {
   return `rgb(${r},${g},${b})`;
 }
 
+//this function of rainbow is the same as the penColorPicker
+//It will create color to horizontal divs when user click and move the mouse
 function addRainbowColorCells() {
   let isMouseDown = false;
   const cell = document.querySelectorAll("#horizontal-cells");
@@ -148,6 +154,33 @@ function addRainbowColorCells() {
   })
 };
 
+//this is an event, it will call the addRainbowColorCell function when the button is clicked
 penRainbowColor.addEventListener("click", () => {
   addRainbowColorCells();
 });
+
+//create an eraser function
+//this function will get the current background to erase the color from the pen
+function eraser () {
+  let isMouseDown = false;
+  const cell = document.querySelectorAll("#horizontal-cells");
+  cell.forEach((div) => {
+    div.addEventListener("mousedown", () => {
+      isMouseDown = true;
+      div.style.backgroundColor = backgroundColorValue;
+    })
+    div.addEventListener("mouseup", () => {
+      isMouseDown = false;
+    })
+    div.addEventListener("mousemove", () => {
+      if (isMouseDown) {
+        div.style.backgroundColor = backgroundColorValue;
+      }
+    })
+  })
+};
+
+//eraser button event call the eraser function
+eraserButton.addEventListener("click", () => {
+  eraser();
+})
