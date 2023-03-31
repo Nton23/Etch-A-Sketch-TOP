@@ -120,9 +120,6 @@ function addPenColorPicker() {
 //this event will select the user selected color
 //will call the function addPenColorPicker and give its color to the function inside
 penColorPicker.addEventListener("change", (event) => {
-  penColorPicker.style.backgroundColor = "blue";
-  penRainbowColor.style.backgroundColor = "white";
-  eraserButton.style.backgroundColor = "white";
   penColorValue = event.target.value;
   addPenColorPicker();
 });
@@ -158,9 +155,6 @@ function addRainbowColorCells() {
 
 //this is an event, it will call the addRainbowColorCell function when the button is clicked
 penRainbowColor.addEventListener("click", () => {
-  penColorPicker.style.backgroundColor = "white";
-  eraserButton.style.backgroundColor = "white";
-  penRainbowColor.style.backgroundColor = "blue";
   addRainbowColorCells();
 });
 
@@ -187,17 +181,11 @@ function eraser () {
 
 //eraser button event call the eraser function
 eraserButton.addEventListener("click", () => {
-  penColorPicker.style.backgroundColor = "white";
-  penRainbowColor.style.backgroundColor = "white";
-  eraserButton.style.backgroundColor = "blue";
   eraser();
 })
 
 //create a clear event
 clearButton.addEventListener("click", () => {
-  penColorPicker.style.backgroundColor = "white";
-  penRainbowColor.style.backgroundColor = "white";
-  eraserButton.style.backgroundColor = "white";
-  backgroundColorPicker.style.backgroundColor = "white";
+
   createCells(userRangeInput.value);
 })
