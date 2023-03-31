@@ -55,6 +55,16 @@ body {
     height: 50px;
 }
 
+.buttons:hover {
+    background-color: bisque;
+    cursor: pointer;
+}
+
+.buttons:focus {
+    background-color: aquamarine;
+}
+
+
 #user-range-display {
     display: flex;
     flex-direction: column;
