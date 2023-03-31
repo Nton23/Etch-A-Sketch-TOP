@@ -70,7 +70,6 @@ function addEventListenerToBackgroundCell() {
 //this is an event that will get the value color everytime the user select the color
 //it will also call the function addEventListenerToBackgroundCell() 
 backgroundColorPicker.addEventListener("change", (event) => {
-  backgroundColorPicker.style.background = "blue";
   backgroundColorValue = event.target.value;
   addEventListenerToBackgroundCell();
 });
